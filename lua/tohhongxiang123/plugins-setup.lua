@@ -136,6 +136,8 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use("tpope/vim-fugitive")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
