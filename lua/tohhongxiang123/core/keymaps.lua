@@ -16,24 +16,35 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 
 -- splitting windows
-keymap.set("n", "<leader>sv", "<C-w>v") -- split vertically
-keymap.set("n", "<leader>sh", "<C-w>s") -- split horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make splits equal width
-keymap.set("n", "<leader>sx", ":close<CR>") -- close current split
+wk.register({
+	s = {
+		name = "split",
+		v = { "<C-w>v", "vertical" },
+		h = { "<C-w>s", "horizontal" },
+		e = { "<C-w>=", "equally" },
+		m = { ":MaximizerToggle<CR>", "maximize/minimize" },
+		x = { "<cmd>close<CR>", "close" },
+	},
+}, { prefix = "<leader>" })
 
 -- opening tabs
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to prev tab
+wk.register({
+	t = {
+		name = "tab",
+		o = { "<cmd>tabnew<CR>", "new" },
+		x = { "<cmd>tabclose<CR>", "close" },
+		n = { "<cmd>tabn<CR>", "next" },
+		p = { "<cmd>tabp<CR>", "previous" },
+	},
+}, { prefix = "<leader>" })
 
 -- plugins keymaps
 
--- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- maximize/restore current split
-
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggles file tree
+wk.register({
+	e = { ":NvimTreeToggle<CR>", "Show file tree" },
+}, { prefix = "<leader>" })
+-- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggles file tree
 
 -- telescope
 wk.register({
@@ -49,4 +60,6 @@ wk.register({
 }, { prefix = "<leader>" })
 
 -- markdown preview
-keymap.set("n", "<leader>p", "<cmd>MarkdownPreview<cr>") -- toggle markdown preview
+wk.register({
+	p = { "<cmd>MarkdownPreview<CR>", "Preview Markdown" },
+}, { prefix = "<leader>" })

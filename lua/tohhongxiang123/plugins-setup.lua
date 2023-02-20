@@ -112,7 +112,8 @@ return packer.startup(function(use)
 	})
 
 	use({
-		"goolord/alpha-nvim",
+		"glepnir/dashboard-nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
 	use({
