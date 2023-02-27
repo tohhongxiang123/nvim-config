@@ -101,7 +101,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
-	-- git signs
+	-- add indications within file for git additions/removals etc.
 	use("lewis6991/gitsigns.nvim")
 
 	use({
@@ -111,11 +111,13 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- add a dashboard to vim
 	use({
 		"glepnir/dashboard-nvim",
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
+	-- show which keymaps are available
 	use({
 		"folke/which-key.nvim",
 		config = function()
@@ -129,6 +131,7 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- nvim statusline autocompletion
 	use({
 		"gelguy/wilder.nvim",
 		config = function()
@@ -136,7 +139,10 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- git integration with vim
 	use("tpope/vim-fugitive")
+
+	use("mbbill/undotree")
 
 	if packer_bootstrap then
 		require("packer").sync()

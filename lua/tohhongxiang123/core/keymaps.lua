@@ -59,6 +59,11 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
+-- undo tree
+wk.register({
+	u = { "<cmd>UndotreeToggle<CR>", "Toggle UndoTree" },
+}, { prefix = "<leader>" })
+
 -- markdown preview
 wk.register({
 	p = { "<cmd>MarkdownPreview<CR>", "Preview Markdown" },

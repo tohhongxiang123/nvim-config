@@ -16,6 +16,7 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
+opt.hlsearch = false
 
 -- cursorline
 opt.cursorline = false -- show current cursor line
@@ -34,3 +35,5 @@ opt.clipboard:append("unnamedplus")
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
+
+opt.scrolloff = 16
